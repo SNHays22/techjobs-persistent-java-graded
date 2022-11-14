@@ -1,4 +1,9 @@
 -- Part 1: Test it with SQL
+SELECT * FROM techjobs.job
+--id = int
+--employer = varchar
+--name = varchar
+--skills = varchar
 
 -- Part 2: Test it with SQL
 
