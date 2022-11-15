@@ -2,7 +2,7 @@ package org.launchcode.techjobs.persistent.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 public class Skill extends AbstractEntity {
 
-    @NotBlank(message="Please provide a description")
+    @NotNull(message="Please provide a description")
     @Size(min=1,max=250, message="Description cannot be longer than 250 characters")
     private String description;
 

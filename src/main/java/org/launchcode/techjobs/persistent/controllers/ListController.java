@@ -1,5 +1,6 @@
 package org.launchcode.techjobs.persistent.controllers;
 
+
 import org.launchcode.techjobs.persistent.models.Job;
 import org.launchcode.techjobs.persistent.models.JobData;
 import org.launchcode.techjobs.persistent.models.data.EmployerRepository;
@@ -36,13 +37,14 @@ public class ListController {
         columnChoices.put("all", "All");
         columnChoices.put("employer", "Employer");
         columnChoices.put("skill", "Skill");
-
     }
 
     @RequestMapping("")
     public String list(Model model) {
-        model.addAttribute(employerRepository.findAll()); //questionable
-        model.addAttribute(skillRepository.findAll());  //questionable
+        model.addAttribute("employers", employerRepository); //questionable
+        model.addAttribute("skills", skillRepository);  //questionable
+        employerRepository.findAll();
+        skillRepository.findAll();
         return "list";
     }
 

@@ -1,6 +1,10 @@
 package org.launchcode.techjobs.persistent.models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import java.util.List;
 
 @Entity
 public class Job extends AbstractEntity{
@@ -10,17 +14,18 @@ public class Job extends AbstractEntity{
     @JoinColumn(name="employer_id")
     private Employer employer;
 
-    @ManyToMany(mappedBy = "skills")
-    private Skill skills;
+    @ManyToMany//(mappedBy = "skills")
+    private List<Skill> skills;
 
     public Job() {
     }
 
-    public Job(Employer employer, Skill skills) {
+    public Job(Employer employer, List<Skill> skills) {
         super();
         this.employer = employer;
         this.skills = skills;
     }
+
 
     public Employer getEmployer() {
         return employer;
@@ -30,11 +35,11 @@ public class Job extends AbstractEntity{
         this.employer = employer;
     }
 
-    public Skill getSkills() {
+    public List<Skill> getSkills() {
         return skills;
     }
 
-    public void setSkills(Skill skills) {
+    public void setSkills(List<Skill> skills) {
         this.skills = skills;
     }
 }
